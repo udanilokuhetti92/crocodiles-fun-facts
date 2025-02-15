@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random Fact Generator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: auto;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .fact {
+            font-size: 24px;
+            font-weight: bold;
+            font-style: italic;
+            margin: 20px 0;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .counter {
+            margin-top: 20px;
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Random Fact Generator</h1>
+        <div id="factDisplay" class="fact"></div>
+        <button id="newFactButton">Get Random Fact</button>
+        <div id="counterDisplay" class="counter">Facts shown: 0</div>
+    </div>
+    <script>
+        const facts = [
+            "Crocodiles are reptiles and belong to the order Crocodylia.",
+            "They can live for over 70 years in the wild.",
+            "Crocodiles are carnivorous and primarily eat fish, birds, and mammals.",
+            "They have powerful jaws that can exert tremendous pressure.",
+            "Crocodiles are ectothermic, meaning they rely on external sources to regulate their body temperature.",
+            "They can hold their breath underwater for up to an hour.",
+            "Crocodiles have a unique ability to see in the dark due to a special membrane in their eyes.",
+            "They are found in tropical and subtropical regions around the world.",
+            "Crocodiles communicate through a variety of vocalizations, including hissing and growling.",
+            "Some species of crocodiles can swim at speeds of up to 20 miles per hour."
+        ];
+
+        let counter = 0;
+
+        document.getElementById('newFactButton').addEventListener('click', function() {
+            const randomIndex = Math.floor(Math.random() * facts.length);
+            document.getElementById('factDisplay').innerHTML = facts[randomIndex];
+            counter++;
+            document.getElementById('counterDisplay').innerText = `Facts shown: ${counter}`;
+        });
+    </script>
+</body>
+</html>
